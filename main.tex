@@ -1,0 +1,227 @@
+\environment slides
+
+\starttext
+
+\setvariables
+  [metadata]
+  [
+    title={
+      Homotopy theoretic\\
+      aspects of\\
+      \overstrike{Constructive Type Theory}\\
+      Reversible Computing
+    },
+    author={Vikraman Choudhury},
+    date={September 1, 2017},
+    location={PL Wonks},
+  ]
+
+\define\PI{
+  Π
+}
+
+\define[1]\loop{
+  % {\Omega}\;{{#1}}
+  \text{\tt Ω}\;{{#1}}
+}
+
+\define[1]\BAut{
+  \text{\tt BAut}\;{{#1}}
+}
+
+\define[1]\Aut{
+  \text{\tt Aut}\;{{#1}}
+}
+
+\def\Bool{
+  {\blackboard{2}}
+}
+
+\def\S1{
+  {\blackboard{S}}^1
+}
+
+\def\Int{
+  {\blackboard{Z}}
+}
+
+\def\equiv{
+  \simeq
+}
+
+\def\U{
+  \mathcal{U}
+}
+
+\define[1]\sU{
+  \displaystyle\sum_{X : \U}{\trunc{X = {{#1}}}}
+}
+
+\define[1]\trunc{
+  \parallel{{#1}}\parallel
+}
+
+\def\Nat{
+  {\blackboard{N}}
+}
+
+\define[1]\Fin{
+  {\text{\tt{Fin}}}\;{{#1}}
+}
+
+\define[3]\Id{
+  {{#1}}=$_{\text{\tt{{#3}}}}${{#2}}
+}
+
+\define[3]\IdU{
+  {{#1}}={{#2}}
+}
+
+\define[1]\code{
+  {\text{\tt{{#1}}}}
+}
+
+\define[1]\codeop{
+  {\text{\tt{{#1}}}}\;
+}
+
+\def\eqdef{
+  \colonequals
+}
+
+\def\pr1{
+  \code{pr}_1
+}
+
+\startslide[title={Acknowledgments}]
+
+  \startalignment[middle]
+    Jacques Carette, Kyle Carter, Chao-Hong Chen, Robert Rose, Siva
+    Somayyajula, Amr Sabry
+  \stopalignment
+
+\stopslide
+
+\startslide[title={Problem}]
+
+  \startalignment[middle]
+    What is a sound and {\em complete} model for \PI?
+
+    What does \PI have to do with Univalence?
+  \stopalignment
+
+\stopslide
+
+\startslide[title={A likely solution}]
+
+  \startplacetable[location=force]
+    \starttabulate[|mc|Mc|mc|mc|][distance=blank]
+      \HL
+      \NC {\bf \PI} \NC {\bf HoTT} \NC {\bf {\infty}\:grpd} \NC {\bf space} \NC\NR
+      \HL
+      \TB[line]
+      \NC \PI_\Bool
+      \NC \sU{\Bool}
+      \NC \Delta_2
+      \NC K(S_2,1) \equiv {\blackboard{R}}P^{\infty}
+      \NC\NR
+      \TB[line]
+      \NC \PI_n
+      \NC \sum_{n : \Nat}{\sU{\Fin{n}}}
+      \NC \coprod\limits_{n\in\Nat}\Delta_n
+      \NC \oplus_{n\in\Nat}K(S_n,1) ?
+      \NC\NR
+      \TB[line]
+      \NC \PI_{\vfrac{1}{2}}
+      \NC \sU{\S1} ?
+      \NC {\bf{B}}\Delta_2
+      \NC ??
+      \NC\NR
+      \HL
+    \stoptabulate
+  \stopplacetable
+
+\stopslide
+
+\startslide[title={Classifying Spaces}]
+
+\stopslide
+
+\startslide[title={Notation}]
+
+\stopslide
+
+\startslide[title={Univalent Fibrations}]
+
+  Let $P : A \rightarrow \U$ be a type family (fibration).
+
+  We can \code{transport} along $P$,
+
+  \startformula
+    \codeop{transport} P : x =_A y \rightarrow P(x) \rightarrow P(y)
+  \stopformula
+
+  We can \code{transport} along $P$, but use the inverse path,
+
+  \startformula
+    \codeop{transport} P : x =_A y \rightarrow P(y) \rightarrow P(x)
+  \stopformula
+
+  This lifts a path in the base space to an equivalence in the fiber.
+
+  \startformula
+    \codeop{transport-eqv} P : x =_A y \rightarrow P(x) \equiv P(y)
+  \stopformula
+
+  $P$ is {\em univalent} if \code{transport-eqv} is an equivalence.
+
+  \startformula
+    \codeop{is-univ-fib} P \eqdef \codeop{is-equiv} (\codeop{transport-eqv} P)
+  \stopformula
+
+\stopslide
+
+\startslide[title={Univalent Universes}]
+
+  Let
+  $\tilde{\code{U}} \eqdef \code{(}\code{U} : \U, \code{El} : \code{U}
+  \rightarrow \U \code{)}$ be a Tarski universe.
+
+  We say that $\tilde{\code{U}}$ is univalent if \code{El} is a
+  univalent fibration.
+
+\stopslide
+
+\startslide[title={Univalent Sub-universes}]
+
+  For any $T : \U$, the subuniverse $(\sU{T}, \pr1)$ is univalent.
+
+  Theorem:
+
+  \startformula
+    \sU{T} \equiv \loop{\BAut{T}} \equiv \Aut{T}
+  \stopformula
+
+\stopslide
+
+\startslide[title={Semantics of $\PI_\Bool$}]
+
+  \startformula
+    \sU{\Bool} \equiv \loop{\BAut{\Bool}} \equiv \Aut{\Bool} \equiv \Bool
+  \stopformula
+
+\stopslide
+
+\startslide[title={Conclusion}]
+
+  See our paper:
+  \goto{https://arxiv.org/abs/1708.02710}[url(https://arxiv.org/abs/1708.02710)]
+
+\stopslide
+
+\stoptext
+
+%%% Local Variables:
+%%% mode: context
+%%% TeX-master: t
+%%% End:
