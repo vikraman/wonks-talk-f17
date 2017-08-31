@@ -112,6 +112,17 @@
 
 \stopslide
 
+\startslide[title={Slogan I}]
+
+  \startalignment[middle]
+    \dontleavehmode
+    \framed[corner=round,height=4em]{
+      \itc{Internal logic is better than external logic!}
+    }
+  \stopalignment
+
+\stopslide
+
 \startslide[title={A likely solution}]
 
   \startplacetable[location=force]
@@ -155,16 +166,14 @@
 
   Let $P : A \rightarrow \U$ be a type family (fibration).
 
-  We can \code{transport} along $P$,
+  Using \code{transport} along $P$
 
   \startformula
-    \codeop{transport} P : x =_A y \rightarrow P(x) \rightarrow P(y)
+    f : x =_A y \rightarrow P(x) \rightarrow P(y)
   \stopformula
 
-  We can \code{transport} along $P$, but use the inverse path,
-
   \startformula
-    \codeop{transport} P : x =_A y \rightarrow P(y) \rightarrow P(x)
+    g : x =_A y \rightarrow P(y) \rightarrow P(x)
   \stopformula
 
   This lifts a path in the base space to an equivalence in the fiber.
@@ -173,11 +182,28 @@
     \codeop{transport-eqv} P : x =_A y \rightarrow P(x) \equiv P(y)
   \stopformula
 
-  $P$ is {\em univalent} if \code{transport-eqv} is an equivalence.
+  \blank[big]
 
-  \startformula
-    \codeop{is-univ-fib} P \eqdef \codeop{is-equiv} (\codeop{transport-eqv} P)
-  \stopformula
+  \startalignment[middle]
+    \dontleavehmode
+    \framed[corner=round,width=25em,height=4em]{
+      $P$ is {\em univalent} if \code{transport-eqv} is an
+      equivalence.
+      \\
+      {\em(Lumsdaine, Kapulkin, Voevodsky)}
+    }
+  \stopalignment
+
+\stopslide
+
+\startslide[title={Slogan I}]
+
+  \startalignment[middle]
+    \dontleavehmode
+    \framed[corner=round,height=4em]{
+      \itc{$\U$ is an object classifier!}
+    }
+  \stopalignment
 
 \stopslide
 
@@ -194,9 +220,9 @@
 
 \startslide[title={Univalent Sub-universes}]
 
-  For any $T : \U$, the subuniverse $(\sU{T}, \pr1)$ is univalent.
+  Lemma:
 
-  Theorem:
+  For any $T : \U$, the subuniverse $(\sU{T}, \pr1)$ is univalent.
 
   \startformula
     \sU{T} \equiv \loop{\BAut{T}} \equiv \Aut{T}
@@ -209,6 +235,21 @@
   \startformula
     \sU{\Bool} \equiv \loop{\BAut{\Bool}} \equiv \Aut{\Bool} \equiv \Bool
   \stopformula
+
+\stopslide
+
+\startslide[title={Soundness \& Completeness}]
+
+\stopslide
+
+\startslide[title={Slogan III}]
+
+  \startalignment[middle]
+    \dontleavehmode
+    \framed[corner=round,height=4em]{
+      \itc{Functions are Functors!}
+    }
+  \stopalignment
 
 \stopslide
 
