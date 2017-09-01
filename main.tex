@@ -26,8 +26,8 @@
 \startslide[title={Acknowledgments}]
 
   \startalignment[middle]
-    Jacques Carette, Kyle Carter, Chao-Hong Chen, Robert Rose, Siva
-    Somayyajula, Amr Sabry
+    Jacques Carette, Kyle Carter, Chao-Hong Chen,
+    Robert Rose, Amr Sabry, Siva Somayyajula
   \stopalignment
 
 \stopslide
@@ -249,13 +249,13 @@
   \startalignment[middle]
     \dontleavehmode
     \startMPcode
-      drawarrow (5,5)..(50,25)..(95,5);
-      drawarrow (95,-5)..(50,-25)..(5,-5);
-      draw (btex {\tt{Syn}} etex) shifted (-20,-3);
-      draw (btex {\tt{Con}} etex) shifted (40,30);
-      draw (btex {\tt{Mod}} etex) shifted (100,-3);
-      draw (btex {\tt{Lan}} etex) shifted (40,-38);
-      draw (btex {\ttbfc{⊥}} etex) shifted (38,-5);
+      drawarrow (5,5)..(50,25)..(95,5) withcolor \MPcolor{foreground:dark};
+      drawarrow (95,-5)..(50,-25)..(5,-5) withcolor \MPcolor{foreground:dark};
+      draw (btex {\tt{Syn}} etex) shifted (-20,-3) withcolor \MPcolor{foreground:dark};
+      draw (btex {\tt{Con}} etex) shifted (40,30) withcolor \MPcolor{foreground:dark};
+      draw (btex {\tt{Mod}} etex) shifted (100,-3) withcolor \MPcolor{foreground:dark};
+      draw (btex {\tt{Lan}} etex) shifted (40,-38) withcolor \MPcolor{foreground:dark};
+      draw (btex {\ttbfc{⊥}} etex) shifted (38,-5) withcolor \MPcolor{foreground:dark};
     \stopMPcode
   \stopalignment
 
@@ -273,32 +273,6 @@
 \stopslide
 
 \startslide[title={Soundness \& Completeness}]
-
-  % \startformula\startalign
-  %   \NC
-  %   \codeop{all-1-loops} :
-  %   \NC
-  %   \prod_{
-  %     \startsubstack
-  %       \code{x}: \UT{\Bool} \NR
-  %       \code{p}: x = x \NR
-  %     \stopsubstack
-  %   }
-  %   (p = \code{`id}) \uplus (p = \code{`not})
-  %   \NR
-  %   \NC
-  %   \codeop{all-2-loops} :
-  %   \NC
-  %   \prod_{
-  %     \startsubstack
-  %       \code{x}: \UT{\Bool} \NR
-  %       \code{p}: x = x \NR
-  %       \code{\alpha}: p = p \NR
-  %     \stopsubstack
-  %   }
-  %   (α = \codeop{refl} p)
-  %   \NR
-  % \stopalign\stopformula
 
   {\em Level 0:}
 
