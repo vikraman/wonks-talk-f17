@@ -34,10 +34,16 @@
 
 \startslide[title={Problem}]
 
-  \startalignment[middle]
-    What is a {\em sound} and {\em complete} model for \PI?
+  \blank[4*big]
 
-    What does {\PI} have to do with Univalence?
+  \startalignment[middle]
+    \rma
+
+    What is a {\em sound} and {\em complete} model for \PI ?
+
+    \blank[3*big]
+
+    What does {\em completeness} have to do with {\em Univalence} ?
   \stopalignment
 
 \stopslide
@@ -84,21 +90,26 @@
 
 \stopslide
 
-\startslide[title={Classifying Spaces}]
+\startslide[title={Prelude}]
 
-\stopslide
-
-\startslide[title={Notation}]
+  \blank[3*big]
 
   \startformula \startalign
-    \NC \loop{T} \NC \eqdef t_0 =_T t_0
+    \NC \loop{T}
+    \NC \eqdef * =_T *
     \NR
-    \NC \Aut{T}  \NC \eqdef T \equiv T
+    \NC \Aut{T}
+    \NC \eqdef T \equiv T
     \NR
-    \NC \BAut{T} \NC \eqdef
+    \NC \BAut{T}
+    \NC \eqdef
     \displaystyle\sum_{X : \U}{\trunc{X \equiv T}}
     \NR
-    \NC \UT{T}   \NC \eqdef \sU{T}
+    \NC \UT{T}
+    \NC \eqdef \sU{T}
+    \NR
+    \NC T_0
+    \NC \eqdef (T , \inh{\codeop{refl} T}) : \UT{T}
     \NR
   \stopalign \stopformula
 
@@ -110,30 +121,26 @@
 
   Using \code{transport} along $P$,
 
-  \startformula
-    f : x =_A y \rightarrow P(x) \rightarrow P(y)
-  \stopformula
-
-  \startformula
-    g : x =_A y \rightarrow P(y) \rightarrow P(x)
-  \stopformula
-
-  This lifts a path in the base space to an equivalence in the fiber.
-
-  \startformula
-    \codeop{transport-eqv} P : x =_A y \rightarrow P(x) \equiv P(y)
-  \stopformula
+  \startformula\startalign
+    \NC f :
+    \NC x =_A y \rightarrow P(x) \rightarrow P(y)
+    \NR
+    \NC g :
+    \NC x =_A y \rightarrow P(y) \rightarrow P(x)
+    \NR
+    \NC \omega :
+    \NC x =_A y \rightarrow P(x) \equiv P(y)
+    \NR
+  \stopalign\stopformula
 
   \blank[big]
 
   \startalignment[middle]
     \dontleavehmode
     \framed[corner=round,width=25em,height=4em]{
-      $P$ is {\em univalent} if \code{transport-eqv} is an
-      equivalence.
-      \\
-      {\em(Lumsdaine, Kapulkin, Voevodsky)}
-    }
+      $P$ is {\em univalent} if $\omega$ is an equivalence. \\
+      \blank[small]
+      {\em(Lumsdaine, Kapulkin, Voevodsky)} }
   \stopalignment
 
 \stopslide
@@ -142,8 +149,10 @@
 
   \startalignment[middle]
     \dontleavehmode
-    \framed[corner=round,height=4em]{
-      \itc{\U is an object classifier!}
+    \framed[corner=round,width=25em,height=6em]{
+      \itc{The identity fibration is univalent!} \\
+      \blank[big]
+      \rightaligned{\ita{--- The Univalence Axiom (Voevodsky)}}
     }
   \stopalignment
 
@@ -189,21 +198,41 @@
 
   \blank[2*big]
 
+  Using $T = \Bool$:
+
   \startformula
     \loop{\UT{\Bool}} \equiv \loop{\BAut{\Bool}} \equiv \Aut{\Bool}
-    \equiv \Bool
   \stopformula
 
   \blank[2*big]
 
+  Characterize $\Aut{\Bool}$:
+
+  \startformula
+    \Aut{\Bool} \equiv \Bool
+  \stopformula
+
+\stopslide
+
+\startslide[title={Slogan III}]
+
   \startalignment[middle]
     \dontleavehmode
-    \framed[corner=round,height=3em]{
-      Equivalences are injections.
+    \framed[corner=round,height=4em]{
+      \itc{Equivalences are injections!}
     }
   \stopalignment
 
-  \blank[big]
+\stopslide
+
+\startslide[title={$\Aut{\Bool} \equiv \Bool$}]
+
+  \blank[2*big]
+
+  If $f : \Bool \rightarrow \Bool$ is an equivalence, then $f$ is
+  either \code{id} or \code{not}.
+
+  \blank[2*big]
 
   \startformula \startalign[n=4,align={right,right,middle,left}]
     \NC             \NC f(\true) \NC   =  \NC f(\false) \NR
@@ -215,17 +244,24 @@
 
 \startslide[title={Soundness \& Completeness}]
 
-  \startformula
-    \code{all-1-loops}
-  \stopformula
+  \blank[4*big]
 
-  \startformula
-    \code{all-2-loops}
-  \stopformula
+  \startalignment[middle]
+    \dontleavehmode
+    \startMPcode
+      drawarrow (5,5)..(50,25)..(95,5);
+      drawarrow (95,-5)..(50,-25)..(5,-5);
+      draw (btex {\tt{Syn}} etex) shifted (-20,-3);
+      draw (btex {\tt{Con}} etex) shifted (40,30);
+      draw (btex {\tt{Mod}} etex) shifted (100,-3);
+      draw (btex {\tt{Lan}} etex) shifted (40,-38);
+      draw (btex {\ttbfc{⊥}} etex) shifted (38,-5);
+    \stopMPcode
+  \stopalignment
 
 \stopslide
 
-\startslide[title={Slogan III}]
+\startslide[title={Slogan IV}]
 
   \startalignment[middle]
     \dontleavehmode
@@ -236,7 +272,62 @@
 
 \stopslide
 
-\startslide[title={Conclusion}]
+\startslide[title={Soundness \& Completeness}]
+
+  % \startformula\startalign
+  %   \NC
+  %   \codeop{all-1-loops} :
+  %   \NC
+  %   \prod_{
+  %     \startsubstack
+  %       \code{x}: \UT{\Bool} \NR
+  %       \code{p}: x = x \NR
+  %     \stopsubstack
+  %   }
+  %   (p = \code{`id}) \uplus (p = \code{`not})
+  %   \NR
+  %   \NC
+  %   \codeop{all-2-loops} :
+  %   \NC
+  %   \prod_{
+  %     \startsubstack
+  %       \code{x}: \UT{\Bool} \NR
+  %       \code{p}: x = x \NR
+  %       \code{\alpha}: p = p \NR
+  %     \stopsubstack
+  %   }
+  %   (α = \codeop{refl} p)
+  %   \NR
+  % \stopalign\stopformula
+
+  {\em Level 0:}
+
+  \startformula\startalign
+    \NC ⟦\_⟧_0 :
+    \NC \PI_\Bool \rightarrow \UT{\Bool}
+    \NR
+    \NC ⌜\_⌝_0 :
+    \NC \UT{\Bool} \rightarrow \PI_\Bool
+    \NR
+  \stopalign\stopformula
+
+  {\em Level 1:}
+
+  \startformula\startalign
+    \NC ⟦\_⟧_1 :
+    \NC \prod_{\code{A,B}:\PI_\Bool}
+    (\code{A} \leftrightarrow_1 \code{B}) \rightarrow ⟦A⟧_0 = ⟦B⟧_0
+    \NR
+    \NC ⌜\_⌝_1 :
+    \NC \Bool_0 = \Bool_0 \rightarrow ⌜\Bool_0⌝_0 \leftrightarrow_1 ⌜\Bool_0⌝_0
+    \NR
+  \stopalign\stopformula
+
+  and so on \ldots
+
+\stopslide
+
+\startslide[title={Epilogue}]
 
   \useURL[arxiv][https://arxiv.org/abs/1708.02710]
 
@@ -252,8 +343,8 @@
     \startitemize
     \item {\tt vikraman/2DTypes}
     \item {\tt rrose1/basic-hott}
-    \item {\tt DreamLinuxer/Pi2}
     \item {\tt ssomayyajula/HoTT}
+    \item {\tt DreamLinuxer/Pi2}
     \stopitemize
   \stopitemize
 

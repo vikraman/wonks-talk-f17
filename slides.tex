@@ -5,10 +5,10 @@
   [default]
   [compose=yes,itlc=yes]
 
-\definefontfamily     [mainface] [rm] [Baskerville]
-\definefontfamily     [mainface] [ss] [Open Sans]
-\definefontfamily     [mainface] [tt] [Iosevka Type]
-\definefontfamily     [mainface] [mm] [Asana Math]
+\definefontfamily [mainface] [rm] [Baskerville]
+\definefontfamily [mainface] [ss] [Open Sans]
+\definefontfamily [mainface] [tt] [Iosevka Type]
+\definefontfamily [mainface] [mm] [Asana Math]
 
 \setupbodyfont[mainface,14pt]
 
@@ -50,6 +50,7 @@
 
 \definecolor[foreground:contrast]    [red]
 \definecolor[foreground:altcontrast] [magenta]
+\definecolor[foreground:dark]        [h=657B83]
 
 \startreusableMPgraphic {page:background}
   StartPage;
@@ -135,19 +136,19 @@
     set={\setups{titlepage}},
   ]
 
-\definestyle[titlestyle]    [style=\rmbic, color=foreground:contrast]
-\definestyle[subtitlestyle] [style=\rmitb, color=foreground:contrast]
+\definestyle[titlestyle]    [style=\rmitc, color=foreground:contrast]
+\definestyle[subtitlestyle] [style=\rmitb, color=orange]
 \definestyle[authorstyle]   [style=\rmita, color=foreground:altcontrast]
-\definestyle[locationstyle] [style=\rm,    color=]
-\definestyle[datestyle]     [style=\rm,    color=]
+\definestyle[locationstyle] [style=\rm,    color=foreground:dark]
+\definestyle[datestyle]     [style=\rm,    color=foreground:dark]
 
 \startsetups titlepage
   \startstandardmakeup[align=middle]
     \titlestyle{\getvariable{metadata}{title}}
-    \blank[big]
+    \blank[2*big]
 
     \subtitlestyle{\getvariable{metadata}{subtitle}}
-    \blank[3*big]
+    \blank[4*big]
 
     \authorstyle{\getvariable{metadata}{author}}
     \blank[big]
