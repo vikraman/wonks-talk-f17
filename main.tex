@@ -37,6 +37,14 @@
   {\blackboard{2}}
 }
 
+\def\true{
+  \code{tt}
+}
+
+\def\false{
+  \code{ff}
+}
+
 \def\S1{
   {\blackboard{S}}^1
 }
@@ -50,7 +58,7 @@
 }
 
 \def\U{
-  \mathcal{U}
+  {\m{\mathcal{U}}}
 }
 
 \define[1]\sU{
@@ -160,6 +168,13 @@
 
 \startslide[title={Notation}]
 
+  \startformula \startalign
+    \NC \loop{T}    \NC \eqdef t_0 =_T t_0 \NR
+    \NC \Aut{T}     \NC \eqdef T \equiv T  \NR
+    \NC \BAut{T}    \NC \eqdef \displaystyle\sum_{X : \U}{\trunc{X \equiv T}} \NR
+    \NC \code{U}[T] \NC \eqdef \sU{T}      \NR
+  \stopalign \stopformula
+
 \stopslide
 
 \startslide[title={Univalent Fibrations}]
@@ -196,12 +211,12 @@
 
 \stopslide
 
-\startslide[title={Slogan I}]
+\startslide[title={Slogan II}]
 
   \startalignment[middle]
     \dontleavehmode
     \framed[corner=round,height=4em]{
-      \itc{$\U$ is an object classifier!}
+      \itc{\U is an object classifier!}
     }
   \stopalignment
 
@@ -233,8 +248,31 @@
 \startslide[title={Semantics of $\PI_\Bool$}]
 
   \startformula
-    \sU{\Bool} \equiv \loop{\BAut{\Bool}} \equiv \Aut{\Bool} \equiv \Bool
+    \loop{\sU{\Bool}} \equiv \loop{\BAut{\Bool}} \equiv \Aut{\Bool}
   \stopformula
+
+  And,
+
+  \startformula
+    \Aut{\Bool} \equiv \Bool
+  \stopformula
+
+  \blank[big]
+
+  \startalignment[middle]
+    \dontleavehmode
+    \framed[corner=round,height=4em]{
+      Equivalences are injections.
+    }
+  \stopalignment
+
+  \blank[big]
+
+  \startformula \startalign[n=4,align={right,right,middle,left}]
+    \NC             \NC f(\true) \NC   =  \NC f(\false) \NR
+    \NC \rightarrow \NC \true    \NC   =  \NC \false    \NR
+    \NC \rightarrow \NC          \NC \bot \NC           \NR
+  \stopalign \stopformula
 
 \stopslide
 
