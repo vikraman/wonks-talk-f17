@@ -1,4 +1,4 @@
-TEX = main.tex slides.tex
+TEX = main.tex macros.tex slides.tex
 PDF = main.pdf
 
 all: $(PDF)

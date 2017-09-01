@@ -10,7 +10,7 @@
 \definefontfamily     [mainface] [tt] [Iosevka Type]
 \definefontfamily     [mainface] [mm] [Asana Math]
 
-\setupbodyfont[mainface,12pt]
+\setupbodyfont[mainface,14pt]
 
 \setupalign[hanging]
 \setupwhitespace[big]
@@ -36,11 +36,20 @@
     bottomspace=1mm,
   ]
 
-\definecolor[background:light][h=FDF6E3]
-\definecolor[background:dark] [h=EEE8D5]
+\definecolor [yellow]  [h=B58900]
+\definecolor [orange]  [h=CB4B16]
+\definecolor [red]     [h=DC322F]
+\definecolor [magenta] [h=D33682]
+\definecolor [violet]  [h=6C71C4]
+\definecolor [blue]    [h=268BD2]
+\definecolor [cyan]    [h=2AA198]
+\definecolor [green]   [h=859900]
 
-\definecolor[foreground:contrast]    [h=DC322F]
-\definecolor[foreground:altcontrast] [h=D33682]
+\definecolor[background:light]   [h=FDF6E3]
+\definecolor[background:dark]    [h=EEE8D5]
+
+\definecolor[foreground:contrast]    [red]
+\definecolor[foreground:altcontrast] [magenta]
 
 \startreusableMPgraphic {page:background}
   StartPage;
@@ -51,8 +60,7 @@
   StopPage;
 \stopreusableMPgraphic
 
-\defineoverlay [page:background][\reuseMPgraphic{page:background}]
-
+\defineoverlay[page:background][\reuseMPgraphic{page:background}]
 \setupbackgrounds[page][background={page:background}]
 
 \usemodule[visualcounter]
@@ -127,15 +135,19 @@
     set={\setups{titlepage}},
   ]
 
-\definestyle[titlestyle]   [style=\rmbic, color=foreground:contrast]
-\definestyle[authorstyle]  [style=\rmita, color=foreground:altcontrast]
-\definestyle[locationstyle][style=\rm,    color=]
-\definestyle[datestyle]    [style=\rm,    color=]
+\definestyle[titlestyle]    [style=\rmbic, color=foreground:contrast]
+\definestyle[subtitlestyle] [style=\rmitb, color=foreground:contrast]
+\definestyle[authorstyle]   [style=\rmita, color=foreground:altcontrast]
+\definestyle[locationstyle] [style=\rm,    color=]
+\definestyle[datestyle]     [style=\rm,    color=]
 
 \startsetups titlepage
   \startstandardmakeup[align=middle]
     \titlestyle{\getvariable{metadata}{title}}
-    \blank[2*big]
+    \blank[big]
+
+    \subtitlestyle{\getvariable{metadata}{subtitle}}
+    \blank[3*big]
 
     \authorstyle{\getvariable{metadata}{author}}
     \blank[big]
